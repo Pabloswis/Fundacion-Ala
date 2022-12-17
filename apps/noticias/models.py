@@ -16,7 +16,7 @@ class Noticia(models.Model):
 	fecha = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
-		return self.titulo
+		return f"Titulo: {self.titulo} // Categoria: {self.categoria_noticia}"
 
 class Comentario(models.Model):
 	usuario = models.ForeignKey(Usuario, on_delete = models.CASCADE)
@@ -25,4 +25,4 @@ class Comentario(models.Model):
 	fecha = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
-		return f"{Noticia}->{Comentario.texto}"
+		return f"Usuario: {self.usuario}  //  Comentario: {self.texto}"
