@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
 
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name = 'admin'),
     # 1 PARAMETROS ES EL TEXTO DE LA URL
     # 2 LA VISTA QUE VA EJECUTAR
     # 3 ES EL NOMBRE LA URL (aun no lo usamos)
