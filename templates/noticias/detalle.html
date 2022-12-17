@@ -5,20 +5,35 @@
 
 
 {% block contenido %}
-	<h1>ACA VOY A DETALLAR UNA NOTICIA</h1>
-		<img src="{{noticia.imagen.url}}" width="500" height="500">
-		
-		<p>TITULO: {{noticia.titulo}}</p>
-		
-		<p>FECHA: {{noticia.fecha}}</p>
-		<p>CATEGORIA: {{noticia.categoria_noticia}}</p>
-		<p>CUERPO: {{noticia.cuerpo}}</p>
-		<br><br>
-		<br>
-		<form method="POST" action="{% url 'noticias:comentar' %}">{% csrf_token %}
-			<textarea name="comentario" maxlength="1500"> </textarea>
+<!-- <h1>ACA VOY A DETALLAR UNA NOTICIA</h1> -->
+
+<div class="card">
+	<div class="card-body">
+		<center>
+			<h2 class="card-title">{{noticia.titulo}}</h2>
+			<hr>
+			<h4 class="card-text" >{{noticia.cuerpo}}</h4>
+		</center>
+		<p class="card-text"><small class="text-muted">Categoria: {{noticia.categoria_noticia}}</small></p>
+		<p class="card-text"><small class="text-muted">{{noticia.fecha}}</small></p>
+	</div>
+	<img src="{{noticia.imagen.url}}" class="card-img-bottom" alt="...">
+</div>
+
+			<form method="POST" action="{% url 'noticias:comentar' %}">{% csrf_token %}
+			
+			{% comment %} <textarea name="comentario" maxlength="1500"> </textarea> {% endcomment %}
+
+
+			<div class="form-floating">
+				<textarea class="form-control" name="comentario" maxlength="1500" width='50px'></textarea>
+				
+			  </div>
+
+
 			<input type="text" name="id_noticia" value="{{noticia.pk}}" hidden=""> 
-			<input type="submit" value="GUARDAR">
+			{% comment %} <input type="submit" value="Comentar"> {% endcomment %}
+			<button type="submit"  value="Comentar" class="btn btn-outline-primary">Comentar</button>
 		</form>
 		<br><br><br>
 		<h3>COMENTARIOS</h3>
