@@ -38,6 +38,7 @@ def Detalle_Noticias(request, pk):
 
 
 @login_required
+
 def Comentar_Noticia(request):
 
 	com = request.POST.get('comentario',None)
